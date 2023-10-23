@@ -21,7 +21,6 @@
 
 ## items テーブル
 
-<<<<<<< HEAD
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | user               | references | null: false, foreign_key: true |
@@ -33,18 +32,6 @@
 | prefectures_id     | integer    | null: false                    |
 | shopping_days_id   | integer    | null: false                    |
 | price              | integer    | null: false                    |
-=======
-| Column           | Type    | Options      |
-| ---------------- | ------- | -----------  |
-| name             | string  | null: false  |
-| explanation      | text    | null: false  |
-| category         | integer | null: false  |
-| condition        | integer | null: false  |
-| shopping_charge  | integer | null: false  |
-| shopping_address | integer | null: false  |
-| shopping_days    | integer | null: false  |
-| price            | integer | null: false  |
->>>>>>> 5071842382dfd148afeac5a72a444b4fb56bce3b
 
 ### Association
 
@@ -59,17 +46,10 @@
 
 ## orders テーブル
 
-<<<<<<< HEAD
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | user    | references | null: false, foreign_key: true |
 | item    | references | null: false, foreign_key: true |
-=======
-| Column  | Type       | Options  |
-| ------- | ---------- | -------- |
-| user_id | references |          |
-| item_id | references |          |
->>>>>>> 5071842382dfd148afeac5a72a444b4fb56bce3b
 
 ### Association
 
@@ -80,7 +60,6 @@
 
 ## buyers テーブル
 
-<<<<<<< HEAD
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | order          | references | null: false, foreign_key: true |
@@ -90,17 +69,6 @@
 | street_address | string     | null: false                    |
 | building_name  | string     |                                |
 | telephone      | string     | null: false                    |
-=======
-| Column         | Type       | Options     |
-| -------------- | ---------- | ----------- |
-| user_id        | references |             |
-| post_code      | string     | null: false |
-| prefectures    | integer    | null: false |
-| municipalities | string     | null: false |
-| street_address | string     | null: false |
-| building_name  | string     |             |
-| telephone      | string     | null: false |
->>>>>>> 5071842382dfd148afeac5a72a444b4fb56bce3b
 
 ### Association
 
