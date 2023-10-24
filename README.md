@@ -6,7 +6,7 @@
 | ------------------ | ------ | ------------------------- |
 | nickname           | string | null: false               |
 | email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
+| password           | string | null: false               |
 | first_name         | string | null: false               |
 | last_name          | string | null: false               |
 | first_kana         | string | null: false               |
@@ -21,7 +21,6 @@
 
 ## items テーブル
 
-
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | user               | references | null: false, foreign_key: true |
@@ -33,9 +32,6 @@
 | prefectures_id     | integer    | null: false                    |
 | shopping_days_id   | integer    | null: false                    |
 | price              | integer    | null: false                    |
-
-
-
 
 ### Association
 
@@ -50,13 +46,10 @@
 
 ## orders テーブル
 
-
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | user    | references | null: false, foreign_key: true |
 | item    | references | null: false, foreign_key: true |
-
-
 
 ### Association
 
@@ -67,17 +60,15 @@
 
 ## buyers テーブル
 
-
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | order          | references | null: false, foreign_key: true |
 | post_code      | string     | null: false                    |
 | prefectures_id | integer    | null: false                    |
-| municipalities | string     | null: false                    |
-| street_address | string     | null: false                    |
+| city           | string     | null: false                    |
+| city_address   | string     | null: false                    |
 | building_name  | string     |                                |
 | telephone      | string     | null: false                    |
-
 
 ### Association
 
