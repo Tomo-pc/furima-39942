@@ -6,13 +6,12 @@ class User < ApplicationRecord
   has_many :buyers
   has_many :orders
 
-  validates :nickname, presence: true, length: { maximum: 6 }
-  validates :first_name, presence: true, format: { with: /\A[ぁ-んァ-ヶー－]+\z/ }
-  validates :last_name, presence: true, format: { with: /\A[ぁ-んァ-ヶー－]+\z/ }
+  validates :nickname, presence: true
+  validates :first_name, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龠々]+\z/  }
+  validates :last_name, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龠々]+\z/ }
   validates :first_kana, presence: true, format: { with: /\A[ぁ-んァ-ヶー－]+\z/ }
   validates :last_kana, presence: true, format: { with: /\A[ぁ-んァ-ヶー－]+\z/ }
   validates :birth_day, presence: true
-  validates :email, presence: true, uniqueness: true
   validates :password, presence: true, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d).+\z/}
 
 end
