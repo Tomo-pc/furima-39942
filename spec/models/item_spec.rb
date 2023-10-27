@@ -16,12 +16,11 @@ RSpec.describe Item, type: :model do
         @item.image = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
-
       end
       it 'nameが空では出品できない' do
         @item.name = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include( "Name can't be blank")
+        expect(@item.errors.full_messages).to include("Name can't be blank")
       end
       it 'explanationが空では出品できない' do
         @item.explanation = ''
@@ -61,47 +60,47 @@ RSpec.describe Item, type: :model do
       it 'category_idは---以外を選択しないと出品できない' do
         @item.category_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
       it 'condition_idは---以外を選択しないと出品できない' do
         @item.condition_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition must be other than 1")
+        expect(@item.errors.full_messages).to include('Condition must be other than 1')
       end
       it 'shopping_charge_idは---以外を選択しないと出品できない' do
         @item.shopping_charge_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shopping charge must be other than 1")
+        expect(@item.errors.full_messages).to include('Shopping charge must be other than 1')
       end
       it 'shopping_days_idは---以外を選択しないと出品できない' do
         @item.shopping_days_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shopping days must be other than 1")
+        expect(@item.errors.full_messages).to include('Shopping days must be other than 1')
       end
       it 'prefectures_idは---以外を選択しないと出品できない' do
         @item.prefectures_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefectures must be other than 1")
+        expect(@item.errors.full_messages).to include('Prefectures must be other than 1')
       end
       it 'priceは半角数字でないと出品できない' do
         @item.price = '５００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
       it 'priceは300円以下だと出品できない' do
         @item.price = 100
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
+        expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
       end
       it 'priceは9,999,999円以上だと出品できない' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
+        expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
       end
       it 'userが紐づいていなければ出品できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User must exist")
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end
