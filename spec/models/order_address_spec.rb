@@ -38,6 +38,11 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Telephone can't be blank")
       end
+      it "tokenが空では登録できないこと" do
+        @order_address.token = ""
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Token can't be blank")
+      end
       it 'post_codeは「3桁ハイフン4桁」でないと購入できない' do
         @order_address.post_code = '1234-567'
         @order_address.valid?
