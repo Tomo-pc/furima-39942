@@ -55,10 +55,10 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :buyer
+- has_one :address
 
 
-## buyers テーブル
+## address テーブル
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
