@@ -23,14 +23,14 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    unless @item.user == current_user
-      redirect_to root_path
-    end
+    return unless @item.user != current_user || @item.order
+
+    redirect_to root_path
   end
 
   def update
     if @item.update(item_params)
-      redirect_to item_path 
+      redirect_to item_path
     else
       render :edit, status: :unprocessable_entity
     end
@@ -38,16 +38,15 @@ class ItemsController < ApplicationController
 
   def destroy
     item = Item.find(params[:id])
-    if user_signed_in? && item.user == current_user
-      item.destroy
-    end
+    item.destroy if user_signed_in? && item.user == current_user
     redirect_to root_path
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:image, :name, :explanation, :category_id, :condition_id, :shopping_charge_id, :shopping_days_id, :prefectures_id, :price).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :name, :explanation, :category_id, :condition_id, :shopping_charge_id,
+                                 :shopping_days_id, :prefectures_id, :price).merge(user_id: current_user.id)
   end
 
   def set_item
@@ -55,8 +54,8 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in?
-      redirect_to new_user_session_path
-    end
+    return if user_signed_in?
+
+    redirect_to new_user_session_path
   end
 end

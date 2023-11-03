@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :item do
     name               { '冷蔵庫' }
-    explanation        { 'これは食材や飲み物を冷やすもので、扉が３つあります。' }
+    explanation        { 'これは食材や飲み物を冷やすもので、扉がいくつかあります。' }
     category_id        { 3 }
     condition_id       { 3 }
     shopping_charge_id { 3 }
