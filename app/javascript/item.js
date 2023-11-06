@@ -20,5 +20,4 @@ function item () {
 
 // Turboフレームの読み込み後にitem関数を実行
 document.addEventListener('turbo:load', item);
-
-
+window.addEventListener('turbo:render', item);
