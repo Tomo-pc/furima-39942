@@ -2,7 +2,7 @@
 lock '3.18.0'
 
 # Capistranoのログの表示に利用する
-set :application, 'furima_39942'
+set :application, 'furima-39942'
 
 # どのリポジトリからアプリをpullするかを指定する
 set :repo_url,  'git@github.com:Tomo-pc/furima-39942.git'
